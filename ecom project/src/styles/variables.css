@@ -1,0 +1,109 @@
+/* ===================================
+   CSS VARIABLES - Design System
+   =================================== */
+
+:root {
+  /* Colors - Primary */
+  --color-primary: #111;
+  --color-primary-hover: #333;
+  --color-secondary: #000;
+  
+  /* Colors - Text */
+  --color-text-primary: #111;
+  --color-text-secondary: #666;
+  --color-text-tertiary: #999;
+  --color-text-muted: #999;
+  --color-text-light: #555;
+  
+  /* Colors - Background */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f0f0f0;
+  --color-bg-tertiary: #f3f3f3;
+  --color-bg-light: #f9f9f9;
+  --color-bg-lighter: #fafafa;
+  
+  /* Colors - Border */
+  --color-border-light: #eee;
+  --color-border: #ddd;
+  --color-border-dark: #d4d4d4;
+  --color-border-darker: #e0e0e0;
+  
+  /* Colors - Accent */
+  --color-accent-gold: #C9A86A;
+  --color-accent-yellow: #FFC107;
+  --color-accent-red: #FF3333;
+  --color-accent-green: #4CAF50;
+  
+  /* Typography */
+  --font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-md: 15px;
+  --font-size-lg: 16px;
+  --font-size-xl: 17px;
+  --font-size-2xl: 18px;
+  --font-size-3xl: 28px;
+  --font-size-4xl: 32px;
+  --font-size-5xl: 36px;
+  --font-size-6xl: 38px;
+  --font-size-7xl: 42px;
+  --font-size-8xl: 60px;
+  
+  /* Font Weight */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 15px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 25px;
+  --spacing-3xl: 30px;
+  --spacing-4xl: 40px;
+  --spacing-5xl: 50px;
+  --spacing-6xl: 60px;
+  --spacing-7xl: 70px;
+  --spacing-8xl: 80px;
+  --spacing-9xl: 100px;
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 14px;
+  --radius-3xl: 18px;
+  --radius-4xl: 20px;
+  --radius-5xl: 30px;
+  --radius-full: 50px;
+  --radius-round: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 3px 10px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 5px 18px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Container */
+  --container-max-width: 1400px;
+  --container-padding: 40px;
+  
+  /* Z-Index */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-fixed: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+}

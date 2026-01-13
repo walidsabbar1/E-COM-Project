@@ -1,5 +1,9 @@
-import TestimonialCard from "./TestimonialCard";
-import "./Testimonials.css";
+/**
+ * Testimonials Section
+ * Displays customer testimonials with navigation controls
+ */
+import TestimonialCard from "../../components/TestimonialCard";
+import styles from './Testimonials.module.css';
 
 function Testimonials() {
   const testimonials = [
@@ -16,21 +20,23 @@ function Testimonials() {
     {
       name: "James L.",
       rating: 4,
-      text: "As someone who’s always on the lookout for unique fashion pieces, I’m thrilled to have stumbled upon Shopco. The selection of clothes is diverse and stylish."
+      text: "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shopco. The selection of clothes is diverse and stylish."
     }
   ];
 
   return (
-    <section className="testimonials-section">
-      <div className="testimonials-header">
-        <h2 className="section-title">OUR HAPPY CUSTOMERS</h2>
-        <div className="controls">
-          <button className="arrow-btn" aria-label="Previous">
+    <section className={styles.testimonialsSection}>
+      {/* Header with Title and Navigation */}
+      <div className={styles.testimonialsHeader}>
+        <h2 className={styles.sectionTitle}>OUR HAPPY CUSTOMERS</h2>
+        
+        <div className={styles.controls}>
+          <button className={styles.arrowBtn} aria-label="Previous">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <button className="arrow-btn" aria-label="Next">
+          <button className={styles.arrowBtn} aria-label="Next">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -38,7 +44,8 @@ function Testimonials() {
         </div>
       </div>
 
-      <div className="testimonials-grid">
+      {/* Testimonials Grid */}
+      <div className={styles.testimonialsGrid}>
         {testimonials.map((item) => (
           <TestimonialCard
             key={item.name}

@@ -1,7 +1,11 @@
-import "./BrowseStyle.css";
+/**
+ * BrowseStyle Section
+ * Displays different clothing style categories in a grid
+ */
+import styles from './BrowseStyle.module.css';
 
 function BrowseStyle() {
-  const styles = [
+  const styleCategories = [
     { title: "Casual", img: "/images/casual.png" },
     { title: "Formal", img: "/images/formal.png" },
     { title: "Party", img: "/images/party.png" },
@@ -9,14 +13,14 @@ function BrowseStyle() {
   ];
 
   return (
-    <section className="browse-style">
-      <h2 className="section-title">BROWSE BY DRESS STYLE</h2>
+    <section className={styles.browseStyle}>
+      <h2 className={styles.sectionTitle}>BROWSE BY DRESS STYLE</h2>
 
-      <div className="styles-grid">
-        {styles.map((style) => (
+      <div className={styles.stylesGrid}>
+        {styleCategories.map((style) => (
           <div
             key={style.title}
-            className="style-card"
+            className={styles.styleCard}
             style={{ backgroundImage: `url(${style.img})` }}
           >
             <span>{style.title}</span>

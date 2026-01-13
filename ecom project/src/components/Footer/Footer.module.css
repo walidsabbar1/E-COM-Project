@@ -1,0 +1,141 @@
+/* Footer Container */
+.footer {
+  background: var(--color-bg-secondary);
+  padding: var(--spacing-8xl) 0 var(--spacing-3xl);
+  margin-top: var(--spacing-9xl);
+}
+
+.footerContainer {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-4xl);
+}
+
+/* Top Section */
+.footerTop {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6xl);
+  padding-bottom: var(--spacing-6xl);
+  border-bottom: 1px solid var(--color-border-darker);
+}
+
+/* Brand Section */
+.footerBrand {
+  max-width: 280px;
+}
+
+.brandLogo {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-black);
+  margin-bottom: var(--spacing-xl);
+  letter-spacing: -0.5px;
+}
+
+.footerBrand p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-2xl);
+  line-height: 1.7;
+  font-size: var(--font-size-sm);
+}
+
+/* Social Icons */
+.footerSocials {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.socialIcon {
+  width: var(--spacing-5xl);
+  height: var(--spacing-5xl);
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: var(--transition-base);
+  border: 1px solid var(--color-border);
+}
+
+.socialIcon:hover {
+  background: var(--color-primary);
+  color: var(--color-bg-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+/* Navigation Columns */
+.footerColumns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-4xl);
+}
+
+.footerCol h4 {
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 1px;
+  color: var(--color-text-primary);
+}
+
+.footerCol a {
+  display: block;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.footerCol a:hover {
+  color: var(--color-text-primary);
+  padding-left: var(--spacing-xs);
+}
+
+/* Bottom Section */
+.footerBottom {
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-3xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+}
+
+.footerBottom p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Payment Methods */
+.footerPayments {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.paymentIcon {
+  height: var(--spacing-5xl);
+  width: var(--spacing-7xl);
+  background: var(--color-bg-primary);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .footerTop {
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-8xl);
+  }
+
+  .footerColumns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

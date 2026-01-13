@@ -1,22 +1,21 @@
+/**
+ * Main App Component
+ * Assembles all sections to create the homepage
+ */
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import NewArrivals from "./components/NewArrivals";
-import TopSelling from "./components/TopSelling";
-import BrowseStyle from "./components/BrowseStyle";
-import Testimonials from "./components/Testimonials";
-import NewsletterBanner from "./components/NewsletterBanner";
+import Hero from "./sections/Hero";
+import NewArrivals from "./sections/NewArrivals";
+import TopSelling from "./sections/TopSelling";
+import BrowseStyle from "./sections/BrowseStyle";
+import Testimonials from "./sections/Testimonials";
+import NewsletterBanner from "./sections/NewsletterBanner";
 import Footer from "./components/Footer";
+import Home from "./pages/home";
+
 function App() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <NewArrivals />
-      <TopSelling />
-      <BrowseStyle />
-      <Testimonials />
-      <NewsletterBanner />
-      <Footer />
+      <Home />
     </>
   );
 }

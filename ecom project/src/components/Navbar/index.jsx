@@ -1,9 +1,14 @@
+/**
+ * Navbar Component
+ * Fixed navigation bar with announcement banner, logo, nav links, search, and user icons
+ */
 import { useEffect, useState } from "react";
-import "./Navbar.css";
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10); 
@@ -14,27 +19,29 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="navbar-container">
-
+    <header className={styles.navbarContainer}>
       {/* Announcement Bar */}
-      <div className="announcement">
+      <div className={styles.announcement}>
         Sign up and get 20% off on your first order.
         <span> Sign Up Now</span>
       </div>
 
       {/* Main Navbar */}
-      <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-        <div className="logo">SHOP.CO</div>
+      <nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ""}`}>
+        {/* Logo */}
+        <div className={styles.logo}>SHOP.CO</div>
 
-        <ul className="nav-links">
+        {/* Navigation Links */}
+        <ul className={styles.navLinks}>
           <li>Shop</li>
           <li>On Sale</li>
           <li>New Arrivals</li>
           <li>Brands</li>
         </ul>
 
-        <div className="nav-right">
-          <div className="search-container">
+        {/* Right Side: Search + Icons */}
+        <div className={styles.navRight}>
+          <div className={styles.searchContainer}>
             <i className="ri-search-line"></i>
             <input type="text" placeholder="Search for products..." />
           </div>
@@ -43,7 +50,6 @@ export default function Navbar() {
           <i className="ri-user-line"></i>
         </div>
       </nav>
-
     </header>
   );
 }

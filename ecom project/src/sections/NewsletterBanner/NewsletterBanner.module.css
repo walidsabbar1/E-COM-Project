@@ -1,0 +1,103 @@
+/* Newsletter Section */
+.newsletter {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-8xl) var(--spacing-xl);
+}
+
+.newsletterContent {
+  width: 70%;
+  max-width: var(--container-max-width);
+  background: var(--color-primary);
+  color: var(--color-bg-primary);
+  padding: var(--spacing-6xl) var(--spacing-7xl);
+  border-radius: var(--radius-4xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-7xl);
+}
+
+/* Left Side */
+.newsletterLeft {
+  flex: 1;
+}
+
+.newsletterLeft h2 {
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Right Side - Form */
+.newsletterRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.emailIcon {
+  position: absolute;
+  left: var(--spacing-xl);
+  pointer-events: none;
+  z-index: var(--z-base);
+}
+
+/* Email Input */
+.newsletterInput {
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-lg) var(--spacing-6xl);
+  border-radius: var(--radius-xl);
+  border: none;
+  font-size: var(--font-size-md);
+  background: var(--color-bg-primary);
+  box-sizing: border-box;
+  height: 52px;
+}
+
+.newsletterInput::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* Subscribe Button */
+.newsletterBtn {
+  width: 100%;
+  background: var(--color-bg-primary);
+  color: var(--color-primary);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-base);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletterBtn:hover {
+  background: var(--color-bg-secondary);
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .newsletterInputs {
+    flex-direction: row;
+  }
+
+  .newsletterInput {
+    flex: 1;
+  }
+}
