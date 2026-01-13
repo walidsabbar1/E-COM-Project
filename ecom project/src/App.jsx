@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import NewArrivals from "./components/NewArrivals";
 import TopSelling from "./components/TopSelling";
 import BrowseStyle from "./components/BrowseStyle";
+import Testimonials from "./components/Testimonials";
 function App() {
   return (
     <>
@@ -11,6 +12,7 @@ function App() {
       <NewArrivals />
       <TopSelling />
       <BrowseStyle />
+      <Testimonials />
     </>
   );
 }
