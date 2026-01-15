@@ -28,26 +28,28 @@ export default function Navbar() {
 
       {/* Main Navbar */}
       <nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ""}`}>
-        {/* Logo */}
-        <div className={styles.logo}>SHOP.CO</div>
+        <div className={`pageContainer ${styles.navContent}`}>
+          {/* Logo */}
+          <div className={styles.logo}>SHOP.CO</div>
 
-        {/* Navigation Links */}
-        <ul className={styles.navLinks}>
-          <li>Shop</li>
-          <li>On Sale</li>
-          <li>New Arrivals</li>
-          <li>Brands</li>
-        </ul>
+          {/* Navigation Links */}
+          <ul className={styles.navLinks}>
+            <li>Shop</li>
+            <li>On Sale</li>
+            <li>New Arrivals</li>
+            <li>Brands</li>
+          </ul>
 
-        {/* Right Side: Search + Icons */}
-        <div className={styles.navRight}>
-          <div className={styles.searchContainer}>
-            <i className="ri-search-line"></i>
-            <input type="text" placeholder="Search for products..." />
+          {/* Right Side: Search + Icons */}
+          <div className={styles.navRight}>
+            <div className={styles.searchContainer}>
+              <i className="ri-search-line"></i>
+              <input type="text" placeholder="Search for products..." />
+            </div>
+
+            <i className="ri-shopping-cart-line"></i>
+            <i className="ri-user-line"></i>
           </div>
-
-          <i className="ri-shopping-cart-line"></i>
-          <i className="ri-user-line"></i>
         </div>
       </nav>
     </header>

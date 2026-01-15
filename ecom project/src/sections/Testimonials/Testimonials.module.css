@@ -1,9 +1,7 @@
 /* Testimonials Section */
 .testimonialsSection {
-  width: 90%;
-  margin: var(--spacing-8xl) auto;
+  margin: var(--spacing-8xl) 0;
   padding: var(--spacing-6xl) var(--spacing-4xl);
-  background: var(--color-bg-light);
   border-radius: var(--radius-4xl);
 }
 

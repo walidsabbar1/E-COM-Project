@@ -1,6 +1,5 @@
 /* Product Card Container */
 .productCard {
-  background: var(--color-bg-light);
   padding: var(--spacing-xl);
   border-radius: var(--radius-xl);
   transition: var(--transition-base);

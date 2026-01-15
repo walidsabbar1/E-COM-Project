@@ -1,8 +1,7 @@
 /* Top Selling Section */
 .topSelling {
   text-align: center;
-  padding: var(--spacing-8xl) var(--spacing-xl);
-  background: var(--color-bg-lighter);
+  padding: var(--spacing-8xl) 0;
 }
 
 /* Section Title */

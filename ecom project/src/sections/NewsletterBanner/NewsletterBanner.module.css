@@ -2,11 +2,11 @@
 .newsletter {
   display: flex;
   justify-content: center;
-  padding: var(--spacing-8xl) var(--spacing-xl);
+  padding: var(--spacing-8xl) 0;
 }
 
 .newsletterContent {
-  width: 70%;
+  width: 100%;
   max-width: var(--container-max-width);
   background: var(--color-primary);
   color: var(--color-bg-primary);

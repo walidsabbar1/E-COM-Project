@@ -105,6 +105,27 @@ select:focus {
   padding: var(--spacing-8xl) var(--spacing-xl);
 }
 
+/* Page Container - Global Horizontal Padding */
+.pageContainer {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+/* Responsive Padding */
+@media (max-width: 1024px) {
+  .pageContainer {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
 /* Text Utilities */
 .text-center {
   text-align: center;

@@ -10,14 +10,21 @@ import Footer from '../components/Footer';
 function Home() {
   return (
     <>
-        <Navbar />
-        <Hero />
+      {/* Full-width sections */}
+      <Navbar />
+      <Hero />
+      
+      {/* Content sections with global horizontal padding */}
+      <div className="pageContainer">
         <NewArrivals />
         <TopSelling />
         <BrowseStyle />
         <Testimonials />
         <NewsletterBanner />
-        <Footer />
+      </div>
+      
+      {/* Full-width footer */}
+      <Footer />
     </>
   );
 }  

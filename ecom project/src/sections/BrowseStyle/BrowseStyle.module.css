@@ -3,8 +3,7 @@
   background: var(--color-bg-tertiary);
   padding: var(--spacing-8xl) var(--spacing-4xl);
   border-radius: var(--radius-5xl);
-  margin: var(--spacing-8xl) auto;
-  width: 90%;
+  margin: var(--spacing-8xl) 0;
   text-align: center;
 }
 

@@ -1,7 +1,7 @@
 /* New Arrivals Section */
 .newArrivals {
   text-align: center;
-  padding: var(--spacing-8xl) var(--spacing-xl);
+  padding: var(--spacing-8xl) 0;
   background: var(--color-bg-primary);
 }
 

@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-7xl) var(--spacing-5xl);
+  padding: var(--spacing-7xl) 0;
   background-image: url('/hero-model.png');
   background-size: cover;
   background-position: center;
@@ -11,6 +11,14 @@
   border-bottom: 1px solid var(--color-border);
   position: relative;
   min-height: 800px;
+}
+
+/* Hero Content Wrapper */
+.heroContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Overlay for better text readability */
