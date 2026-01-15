@@ -57,7 +57,7 @@
 
 .styleCard span {
   padding: var(--spacing-sm) var(--spacing-xl);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-full);
   z-index: var(--z-dropdown);
   background: rgba(255, 255, 255, 0.9);
 }

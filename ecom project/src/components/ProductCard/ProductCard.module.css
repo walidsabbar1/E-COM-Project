@@ -1,7 +1,7 @@
 /* Product Card Container */
 .productCard {
   padding: var(--spacing-xl);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-full);
   transition: var(--transition-base);
   cursor: pointer;
   position: relative;
@@ -101,7 +101,7 @@
   background: var(--color-primary);
   color: var(--color-bg-primary);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
