@@ -1,0 +1,80 @@
+/**
+ * ProductImageGallery.module.css
+ * Styles for the product image gallery component
+ */
+
+.imageGallery {
+  display: flex;
+  gap: 16px;
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 152px;
+  flex-shrink: 0;
+}
+
+.thumbnail {
+  width: 152px;
+  height: 167px;
+  border-radius: var(--radius-4xl);
+  border: 2px solid transparent;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-base);
+  background: var(--color-bg-secondary);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail:hover {
+  border-color: var(--color-border-dark);
+}
+
+.thumbnailActive {
+  border-color: var(--color-primary) !important;
+}
+
+.mainImage {
+  flex: 1;
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  max-height: 530px;
+}
+
+.mainImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .imageGallery {
+    flex-direction: column-reverse;
+  }
+
+  .thumbnails {
+    flex-direction: row;
+    width: 100%;
+    gap: 12px;
+    overflow-x: auto;
+  }
+
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
+  .mainImage {
+    max-height: 400px;
+  }
+}

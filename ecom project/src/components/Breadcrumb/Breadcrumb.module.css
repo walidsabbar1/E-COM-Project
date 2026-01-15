@@ -1,0 +1,37 @@
+/**
+ * Breadcrumb.module.css
+ * Styles for breadcrumb navigation component
+ */
+
+.breadcrumbContainer {
+  padding: 24px 0 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+
+.breadcrumb span {
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb span:hover {
+  color: var(--color-text-primary);
+}
+
+.separator {
+  color: var(--color-text-muted);
+  cursor: default;
+  margin: 0 4px;
+}
+
+.active {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
