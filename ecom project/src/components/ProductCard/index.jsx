@@ -3,6 +3,7 @@
  * Displays individual product with image, name, rating, price, and add to cart button
  */
 import styles from './ProductCard.module.css';
+import { Link } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
   /**
@@ -36,30 +37,32 @@ export default function ProductCard({ product }) {
 
   return (
     <div className={styles.productCard}>
-      {/* Product Image */}
-      <div className={styles.productImage}>
-        <img src={product.image} alt={product.name} />
-      </div>
+      <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+        {/* Product Image */}
+        <div className={styles.productImage}>
+          <img src={product.image} alt={product.name} />
+        </div>
 
-      {/* Product Name */}
-      <h3 className={styles.productName}>{product.name}</h3>
+        {/* Product Name */}
+        <h3 className={styles.productName}>{product.name}</h3>
 
-      {/* Rating */}
-      <div className={styles.productRating}>
-        {renderStars(product.rating)}
-        <span className={styles.ratingNumber}>{product.rating}</span>
-      </div>
+        {/* Rating */}
+        <div className={styles.productRating}>
+          {renderStars(product.rating)}
+          <span className={styles.ratingNumber}>{product.rating}</span>
+        </div>
 
-      {/* Price */}
-      <div className={styles.productPrice}>
-        <span className={styles.current}>${product.price}</span>
-        {product.originalPrice && (
-          <>
-            <span className={styles.old}>${product.originalPrice}</span>
-            <span className={styles.discountBadge}>-{product.discount}%</span>
-          </>
-        )}
-      </div>
+        {/* Price */}
+        <div className={styles.productPrice}>
+          <span className={styles.current}>${product.price}</span>
+          {product.originalPrice && (
+            <>
+              <span className={styles.old}>${product.originalPrice}</span>
+              <span className={styles.discountBadge}>-{product.discount}%</span>
+            </>
+          )}
+        </div>
+      </Link>
 
       {/* Add to Cart Button */}
       <button className={styles.addToCartBtn}>Add to Cart</button>

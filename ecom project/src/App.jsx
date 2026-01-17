@@ -1,10 +1,13 @@
-import ProductDetail from "./pages/ProductDetail.jsx";
+import { Routes, Route } from 'react-router-dom';
+import Home from "./pages/home";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
-    <>
-      <ProductDetail />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/product/:id" element={<ProductDetail />} />
+    </Routes>
   );
 }
 

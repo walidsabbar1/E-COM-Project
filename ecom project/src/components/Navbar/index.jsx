@@ -3,6 +3,7 @@
  * Fixed navigation bar with announcement banner, logo, nav links, search, and user icons
  */
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -30,7 +31,7 @@ export default function Navbar() {
       <nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ""}`}>
         <div className={`pageContainer ${styles.navContent}`}>
           {/* Logo */}
-          <div className={styles.logo}>SHOP.CO</div>
+          <Link to="/" className={styles.logo}>SHOP.CO</Link>
 
           {/* Navigation Links */}
           <ul className={styles.navLinks}>
