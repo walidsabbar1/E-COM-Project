@@ -4,9 +4,11 @@
  */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
+  const { toggleCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect
@@ -48,7 +50,9 @@ export default function Navbar() {
               <input type="text" placeholder="Search for products..." />
             </div>
 
-            <i className="ri-shopping-cart-line"></i>
+            <button onClick={toggleCart} className={styles.iconBtn} aria-label="Open cart">
+              <i className="ri-shopping-cart-line"></i>
+            </button>
             <i className="ri-user-line"></i>
           </div>
         </div>
