@@ -34,6 +34,7 @@
 
 /* View All Button */
 .viewAllBtn {
+  display: inline-block;
   padding: var(--spacing-lg) var(--spacing-5xl);
   background: transparent;
   border: 2px solid var(--color-border);
@@ -44,6 +45,8 @@
   cursor: pointer;
   transition: var(--transition-base);
   margin-top: var(--spacing-xl);
+  text-decoration: none;
+  text-align: center;
 }
 
 .viewAllBtn:hover {

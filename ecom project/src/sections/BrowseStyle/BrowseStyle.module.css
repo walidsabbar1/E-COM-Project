@@ -36,6 +36,7 @@
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
   transition: var(--transition-base);
+  text-decoration: none;
 }
 
 /* Grid Layout - 4/12 + 8/12 Pattern */

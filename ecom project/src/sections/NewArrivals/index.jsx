@@ -2,6 +2,7 @@
  * NewArrivals Section
  * Displays newly added products in a grid layout
  */
+import { Link } from 'react-router-dom';
 import ProductCard from "../../components/ProductCard";
 import { products } from "../../data/products";
 import styles from './NewArrivals.module.css';
@@ -24,7 +25,7 @@ function NewArrivals() {
       </div>
 
       {/* View All Button */}
-      <button className={styles.viewAllBtn}>View All</button>
+      <Link to="/category/new-arrivals" className={styles.viewAllBtn}>View All</Link>
     </section>
   );
 }
