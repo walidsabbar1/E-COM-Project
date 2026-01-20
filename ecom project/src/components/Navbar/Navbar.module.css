@@ -1,7 +1,7 @@
 /* Navbar Container - Fixed at top */
 .navbarContainer {
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -121,4 +121,17 @@
 
 .navRight i:hover {
   color: var(--color-primary);
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
