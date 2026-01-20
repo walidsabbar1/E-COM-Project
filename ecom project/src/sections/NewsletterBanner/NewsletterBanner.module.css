@@ -2,15 +2,19 @@
 .newsletter {
   display: flex;
   justify-content: center;
-  padding: var(--spacing-8xl) 0;
+  padding-top: var(--spacing-8xl);
+  padding-bottom: 0;
+  margin-bottom: -100px;
+  position: relative;
+  z-index: 10;
 }
 
 .newsletterContent {
   width: 100%;
-  max-width: var(--container-max-width);
+  max-width: 1240px;
   background: var(--color-primary);
   color: var(--color-bg-primary);
-  padding: var(--spacing-6xl) var(--spacing-7xl);
+  padding: var(--spacing-4xl) var(--spacing-5xl);
   border-radius: var(--radius-4xl);
   display: flex;
   align-items: center;
@@ -55,7 +59,8 @@
 /* Email Input */
 .newsletterInput {
   width: 100%;
-  padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-lg) var(--spacing-6xl);
+  padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-lg)
+    var(--spacing-6xl);
   border-radius: var(--radius-full);
   border: none;
   font-size: var(--font-size-md);
