@@ -73,7 +73,14 @@
   transition: var(--transition-base);
 }
 
-.navLinks li:hover {
+.navLinks li a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.navLinks li:hover,
+.navLinks li a:hover {
   color: var(--color-text-primary);
 }
 

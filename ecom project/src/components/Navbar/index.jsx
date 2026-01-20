@@ -37,10 +37,10 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <ul className={styles.navLinks}>
-            <li>Shop</li>
-            <li>On Sale</li>
-            <li>New Arrivals</li>
-            <li>Brands</li>
+            <li><Link to="/category">Shop</Link></li>
+            <li><Link to="/category/sale">On Sale</Link></li>
+            <li><Link to="/category/new-arrivals">New Arrivals</Link></li>
+            <li><Link to="/category/brands">Brands</Link></li>
           </ul>
 
           {/* Right Side: Search + Icons */}

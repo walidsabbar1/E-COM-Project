@@ -2,6 +2,7 @@
  * TopSelling Section
  * Displays top-selling products in a grid layout
  */
+import { Link } from 'react-router-dom';
 import ProductCard from "../../components/ProductCard";
 import { products } from "../../data/products";
 import styles from './TopSelling.module.css';
@@ -24,7 +25,7 @@ function TopSelling() {
       </div>
 
       {/* View All Button */}
-      <button className={styles.viewAllBtn}>View All</button>
+      <Link to="/category/sale" className={styles.viewAllBtn}>View All</Link>
     </section>
   );
 }
