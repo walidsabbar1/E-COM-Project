@@ -3,15 +3,39 @@
  * Displays product details, options, and add to cart functionality
  */
 import { useState } from 'react';
+import { useCart } from '../../context/CartContext';
 import styles from './ProductInfo.module.css';
 
 export default function ProductInfo({ product }) {
+  const { addToCart } = useCart();
   const [selectedColor, setSelectedColor] = useState(0);
-  const [selectedSize, setSelectedSize] = useState(2);
+  const [selectedSize, setSelectedSize] = useState(2); // Default to Large if index 2 matches Large, otherwise just an index
   const [quantity, setQuantity] = useState(1);
 
   const incrementQuantity = () => setQuantity(q => q + 1);
   const decrementQuantity = () => setQuantity(q => (q > 1 ? q - 1 : 1));
+
+  const handleAddToCart = () => {
+    // Construct the item to add
+    const itemToAdd = {
+      ...product,
+      quantity: quantity,
+      // Ensure we pass the specific selected variant details
+      color: product.colors && product.colors[selectedColor] ? product.colors[selectedColor].name : 'Default',
+      size: product.sizes && product.sizes[selectedSize] ? product.sizes[selectedSize] : 'Default'
+    };
+    
+    // Check if addToCart in context supports adding with specific quantity, or if it just increments by 1
+    // Based on inspection, addToCart adds with quantity 1 if new, or increments by 1 if existing.
+    // However, here user selects quantity.
+    // I need to update addToCart in context to handle adding multiple quantities at once, OR call it multiple times (inefficient),
+    // OR just pass the initial quantity.
+    // Let's check CartContext again.
+    // Line 63: return [...prev, { ...product, quantity: 1 }]; -> Hardcoded 1.
+    // I should probably update CartContext to respect product.quantity if provided.
+    
+    addToCart(itemToAdd);
+  };
 
   const renderStars = (rating) => {
     const stars = [];
@@ -104,7 +128,7 @@ export default function ProductInfo({ product }) {
           <span className={styles.quantityValue}>{quantity}</span>
           <button onClick={incrementQuantity} className={styles.quantityBtn}>+</button>
         </div>
-        <button className={styles.addToCartBtn}>Add to Cart</button>
+        <button className={styles.addToCartBtn} onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );

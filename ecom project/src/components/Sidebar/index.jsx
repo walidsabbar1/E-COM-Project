@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
-export default function Sidebar() {
+export default function Sidebar({ onApply }) {
   const [priceRange, setPriceRange] = useState([50, 200]);
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
@@ -57,6 +57,16 @@ export default function Sidebar() {
       [category]: !prev[category]
     }));
   };
+  
+  const handleApply = () => {
+    if (onApply) {
+      onApply({
+        priceRange,
+        colors: selectedColors,
+        sizes: selectedSizes
+      });
+    }
+  };
 
   return (
     <aside className="sidebar">
@@ -70,35 +80,46 @@ export default function Sidebar() {
       {/* Categories */}
       <div className="filter-section">
         <ul className="category-list">
-          <li onClick={() => toggleCategory('tshirts')}>
-            <span>T-shirts</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.tshirts ? 'rotated' : ''}>
-              <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+             {/* Updated to use Links for navigation filtering */}
+          <li>
+             <Link to="/category/tshirts" className="category-link">T-shirts</Link>
+             <button onClick={() => toggleCategory('tshirts')} className="expand-btn">
+               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.tshirts ? 'rotated' : ''}>
+                  <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+               </svg>
+             </button>
           </li>
-          <li onClick={() => toggleCategory('shorts')}>
-            <span>Shorts</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.shorts ? 'rotated' : ''}>
-              <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          <li>
+             <Link to="/category/shorts" className="category-link">Shorts</Link>
+             <button onClick={() => toggleCategory('shorts')} className="expand-btn">
+               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.shorts ? 'rotated' : ''}>
+                  <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+               </svg>
+             </button>
           </li>
-          <li onClick={() => toggleCategory('shirts')}>
-            <span>Shirts</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.shirts ? 'rotated' : ''}>
-              <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          <li>
+             <Link to="/category/shirts" className="category-link">Shirts</Link>
+             <button onClick={() => toggleCategory('shirts')} className="expand-btn">
+               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.shirts ? 'rotated' : ''}>
+                  <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+               </svg>
+             </button>
           </li>
-          <li onClick={() => toggleCategory('hoodie')}>
-            <span>Hoodie</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.hoodie ? 'rotated' : ''}>
-              <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+           <li>
+             <Link to="/category/hoodie" className="category-link">Hoodie</Link>
+             <button onClick={() => toggleCategory('hoodie')} className="expand-btn">
+               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.hoodie ? 'rotated' : ''}>
+                  <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+               </svg>
+             </button>
           </li>
-          <li onClick={() => toggleCategory('jeans')}>
-            <span>Jeans</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.jeans ? 'rotated' : ''}>
-              <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          <li>
+             <Link to="/category/jeans" className="category-link">Jeans</Link>
+             <button onClick={() => toggleCategory('jeans')} className="expand-btn">
+               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={expandedCategories.jeans ? 'rotated' : ''}>
+                  <path d="M6 9L8 11L10 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+               </svg>
+             </button>
           </li>
         </ul>
       </div>
@@ -114,7 +135,10 @@ export default function Sidebar() {
             min="50"
             max="200"
             value={priceRange[0]}
-            onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
+            onChange={(e) => {
+                const val = Math.min(Number(e.target.value), priceRange[1] - 1);
+                setPriceRange([val, priceRange[1]]);
+            }}
             className="slider slider-min"
           />
           <input
@@ -122,10 +146,20 @@ export default function Sidebar() {
             min="50"
             max="200"
             value={priceRange[1]}
-            onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+            onChange={(e) => {
+                const val = Math.max(Number(e.target.value), priceRange[0] + 1);
+                setPriceRange([priceRange[0], val]);
+            }}
             className="slider slider-max"
           />
           <div className="slider-track"></div>
+          <div 
+            className="slider-range" 
+            style={{
+                left: `${((priceRange[0] - 50) / 150) * 100}%`,
+                width: `${((priceRange[1] - priceRange[0]) / 150) * 100}%`
+            }}
+          ></div>
         </div>
         <div className="price-labels">
           <span>${priceRange[0]}</span>
@@ -198,7 +232,7 @@ export default function Sidebar() {
       </div>
 
       {/* Apply Filter Button */}
-      <button className="apply-filter-btn">Apply Filter</button>
+      <button className="apply-filter-btn" onClick={handleApply}>Apply Filter</button>
     </aside>
   );
 }

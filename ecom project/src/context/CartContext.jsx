@@ -2,35 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 const CartContext = createContext();
 
-const initialCartItems = [
-  {
-    id: 1,
-    name: "Gradient Graphic T-shirt",
-    size: "Large",
-    color: "White",
-    price: 145,
-    quantity: 1,
-    image: "https://i.imgur.com/kS5t7kL.png"
-  },
-  {
-    id: 2,
-    name: "Checkered Shirt",
-    size: "Medium",
-    color: "Red",
-    price: 180,
-    quantity: 1,
-    image: "https://i.imgur.com/kS5t7kL.png" 
-  },
-  {
-    id: 3,
-    name: "Skinny Fit Jeans",
-    size: "Large",
-    color: "Blue",
-    price: 240,
-    quantity: 1,
-    image: "https://i.imgur.com/kS5t7kL.png" 
-  }
-];
+const initialCartItems = [];
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(initialCartItems);
@@ -57,10 +29,12 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     setCartItems(prev => {
       const existing = prev.find(item => item.id === product.id);
+      const quantityToAdd = product.quantity || 1;
+      
       if (existing) {
-        return prev.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item);
+        return prev.map(item => item.id === product.id ? { ...item, quantity: item.quantity + quantityToAdd } : item);
       }
-      return [...prev, { ...product, quantity: 1 }];
+      return [...prev, { ...product, quantity: quantityToAdd, size: product.size || 'Large', color: product.color || 'White' }];
     });
     openCart();
   };
@@ -89,4 +63,5 @@ export const CartProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => useContext(CartContext);

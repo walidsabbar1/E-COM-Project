@@ -2,7 +2,7 @@
 .sidebar {
   width: 295px;
   min-width: 295px;
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 20px;
   padding: 20px 24px;
@@ -96,6 +96,15 @@
   z-index: 1;
 }
 
+.slider-range {
+  position: absolute;
+  height: 6px;
+  background: #000;
+  border-radius: 3px;
+  top: 0;
+  z-index: 1;
+}
+
 .slider {
   position: absolute;
   width: 100%;
@@ -114,22 +123,22 @@
   width: 20px;
   height: 20px;
   background: #000;
-  border: 3px solid #FFF;
+  border: 3px solid #fff;
   border-radius: 50%;
   cursor: pointer;
   pointer-events: all;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
   background: #000;
-  border: 3px solid #FFF;
+  border: 3px solid #fff;
   border-radius: 50%;
   cursor: pointer;
   pointer-events: all;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .price-labels {
@@ -174,7 +183,7 @@
 
 .size-button {
   padding: 10px 16px;
-  background: #F0F0F0;
+  background: #f0f0f0;
   border: none;
   border-radius: 62px;
   font-size: 14px;
@@ -190,7 +199,7 @@
 
 .size-button.selected {
   background: #000;
-  color: #FFF;
+  color: #fff;
 }
 
 /* Dress Style */
@@ -219,7 +228,7 @@
 }
 
 .dress-style-link:hover {
-  background: #F0F0F0;
+  background: #f0f0f0;
   color: #000;
 }
 
@@ -228,7 +237,7 @@
   width: 100%;
   padding: 16px;
   background: #000;
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 62px;
   font-size: 14px;

@@ -4,8 +4,11 @@
  */
 import styles from './ProductCard.module.css';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 
 export default function ProductCard({ product }) {
+  const { addToCart } = useCart();
+  
   /**
    * Generate star rating display
    * @param {number} rating - Product rating (0-5)
@@ -33,6 +36,12 @@ export default function ProductCard({ product }) {
     }
 
     return stars;
+  };
+
+  const handleAddToCart = (e) => {
+    e.preventDefault(); // Prevent navigation if button is inside Link (though currently it's outside, safer to keep)
+    e.stopPropagation(); // Stop event bubbling
+    addToCart(product);
   };
 
   return (
@@ -65,7 +74,12 @@ export default function ProductCard({ product }) {
       </Link>
 
       {/* Add to Cart Button */}
-      <button className={styles.addToCartBtn}>Add to Cart</button>
+      <button 
+        className={styles.addToCartBtn}
+        onClick={handleAddToCart}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 }
