@@ -12,9 +12,10 @@ export const CartProvider = ({ children }) => {
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
 
-  const updateQuantity = (id, change) => {
+  const updateQuantity = (cartItemId, change) => {
     setCartItems(items => items.map(item => {
-      if (item.id === id) {
+      const currentId = item.cartItemId || item.id;
+      if (currentId === cartItemId) {
         const newQty = Math.max(1, item.quantity + change);
         return { ...item, quantity: newQty };
       }
@@ -22,19 +23,35 @@ export const CartProvider = ({ children }) => {
     }));
   };
 
-  const removeItem = (id) => {
-    setCartItems(items => items.filter(item => item.id !== id));
+  const removeItem = (cartItemId) => {
+    setCartItems(items => items.filter(item => {
+      const currentId = item.cartItemId || item.id;
+      return currentId !== cartItemId;
+    }));
   };
 
   const addToCart = (product) => {
     setCartItems(prev => {
-      const existing = prev.find(item => item.id === product.id);
+      const size = product.size || 'Large';
+      const color = product.color || 'White';
+      const cartItemId = `${product.id}-${size}-${color}`;
+
+      const existing = prev.find(item => {
+        const currentId = item.cartItemId || item.id;
+        return currentId === cartItemId || currentId === product.id && item.size === size && item.color === color;
+      });
       const quantityToAdd = product.quantity || 1;
       
       if (existing) {
-        return prev.map(item => item.id === product.id ? { ...item, quantity: item.quantity + quantityToAdd } : item);
+        return prev.map(item => {
+          const currentId = item.cartItemId || item.id;
+          if (currentId === cartItemId || currentId === product.id && item.size === size && item.color === color) {
+            return { ...item, quantity: item.quantity + quantityToAdd };
+          }
+          return item;
+        });
       }
-      return [...prev, { ...product, quantity: quantityToAdd, size: product.size || 'Large', color: product.color || 'White' }];
+      return [...prev, { ...product, cartItemId, quantity: quantityToAdd, size, color }];
     });
     openCart();
   };
