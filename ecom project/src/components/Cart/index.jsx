@@ -18,13 +18,13 @@ const Cart = () => {
         {/* Cart Items List */}
         <div className={styles.cartItems}>
           {cartItems.map(item => (
-            <div key={item.id} className={styles.cartItem}>
+            <div key={item.cartItemId || item.id} className={styles.cartItem}>
               <img src={item.image} alt={item.name} className={styles.itemImage} onError={(e) => e.target.src = 'https://placehold.co/124x124/eaeaea/999?text=Product'} />
               
               <div className={styles.itemDetails}>
                 <div className={styles.itemHeader}>
                   <h3 className={styles.itemName}>{item.name}</h3>
-                  <button className={styles.deleteBtn} onClick={() => removeItem(item.id)}>
+                  <button className={styles.deleteBtn} onClick={() => removeItem(item.cartItemId || item.id)}>
                     <i className="ri-delete-bin-fill"></i>
                   </button>
                 </div>
@@ -38,11 +38,11 @@ const Cart = () => {
                   <span className={styles.itemPrice}>${item.price}</span>
                   
                   <div className={styles.quantityControls}>
-                    <button className={styles.qtyBtn} onClick={() => updateQuantity(item.id, -1)}>
+                    <button className={styles.qtyBtn} onClick={() => updateQuantity(item.cartItemId || item.id, -1)}>
                       <i className="ri-subtract-line"></i>
                     </button>
                     <span className={styles.qtyValue}>{item.quantity}</span>
-                    <button className={styles.qtyBtn} onClick={() => updateQuantity(item.id, 1)}>
+                    <button className={styles.qtyBtn} onClick={() => updateQuantity(item.cartItemId || item.id, 1)}>
                       <i className="ri-add-line"></i>
                     </button>
                   </div>

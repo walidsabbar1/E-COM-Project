@@ -54,7 +54,7 @@ const SlideCart = () => {
             </div>
           ) : (
             cartItems.map(item => (
-              <div key={item.id} className={styles.cartItem}>
+              <div key={item.cartItemId || item.id} className={styles.cartItem}>
                 <img 
                   src={item.image} 
                   alt={item.name} 
@@ -74,16 +74,16 @@ const SlideCart = () => {
                     <span className={styles.price}>${item.price}</span>
                     
                     <div className={styles.qtyControls}>
-                      <button className={styles.qtyBtn} onClick={() => updateQuantity(item.id, -1)}>
+                      <button className={styles.qtyBtn} onClick={() => updateQuantity(item.cartItemId || item.id, -1)}>
                         <i className="ri-subtract-line"></i>
                       </button>
                       <span className={styles.qtyValue}>{item.quantity}</span>
-                      <button className={styles.qtyBtn} onClick={() => updateQuantity(item.id, 1)}>
+                      <button className={styles.qtyBtn} onClick={() => updateQuantity(item.cartItemId || item.id, 1)}>
                         <i className="ri-add-line"></i>
                       </button>
                     </div>
 
-                    <button className={styles.deleteBtn} onClick={() => removeItem(item.id)}>
+                    <button className={styles.deleteBtn} onClick={() => removeItem(item.cartItemId || item.id)}>
                       <i className="ri-delete-bin-line"></i>
                     </button>
                   </div>
